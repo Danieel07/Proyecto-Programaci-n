@@ -6,7 +6,6 @@ public class FrutaDTO extends ProductoDTO {
 	private String metodoConservacion;
 
 	public FrutaDTO() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public FrutaDTO(boolean deTemporada, String metodoConservacion) {
@@ -24,7 +23,6 @@ public class FrutaDTO extends ProductoDTO {
 
 	public FrutaDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto) {
 		super(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
-		// TODO Auto-generated constructor stub
 	}
 
 	public boolean isDeTemporada() {
@@ -52,7 +50,6 @@ public class FrutaDTO extends ProductoDTO {
 
 	@Override
 	public String vencimiento() {
-		// TODO Auto-generated method stub
 		return super.vencimiento() + "Y se vence mucho mas rapido si se deja cerca a frutas dañadas";
 	}
 

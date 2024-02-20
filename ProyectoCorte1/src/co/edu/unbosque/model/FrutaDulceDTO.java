@@ -6,7 +6,6 @@ public class FrutaDulceDTO extends FrutaDTO {
 	private boolean paraPostres;
 
 	public FrutaDulceDTO() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public FrutaDulceDTO(int nivelDulzura, boolean paraPostres) {
@@ -37,18 +36,15 @@ public class FrutaDulceDTO extends FrutaDTO {
 
 	public FrutaDulceDTO(boolean deTemporada, String metodoConservacion) {
 		super(deTemporada, metodoConservacion);
-		// TODO Auto-generated constructor stub
 	}
 
 	public FrutaDulceDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
 			boolean deTemporada, String metodoConservacion) {
 		super(nombre, precio, tipoProduc, codigoProduc, marcaProducto, deTemporada, metodoConservacion);
-		// TODO Auto-generated constructor stub
 	}
 
 	public FrutaDulceDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto) {
 		super(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
-		// TODO Auto-generated constructor stub
 	}
 
 	public int getNivelDulzura() {
@@ -77,7 +73,6 @@ public class FrutaDulceDTO extends FrutaDTO {
 
 	@Override
 	public String vencimiento() {
-		// TODO Auto-generated method stub
 		return super.vencimiento() + "Y se vence mucho mas rapido si se deja cerca a frutas dañadas";
 	}
 

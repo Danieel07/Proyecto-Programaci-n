@@ -6,7 +6,6 @@ public class VerduraDTO extends ProductoDTO {
 	private double peso;
 
 	public VerduraDTO() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public VerduraDTO(String tipoVerdura, double peso) {
@@ -52,7 +51,6 @@ public class VerduraDTO extends ProductoDTO {
 
 	@Override
 	public String vencimiento() {
-		// TODO Auto-generated method stub
 		return super.vencimiento() + "Se vencen en muy poco tiempo si no se refrigera";
 	}
 

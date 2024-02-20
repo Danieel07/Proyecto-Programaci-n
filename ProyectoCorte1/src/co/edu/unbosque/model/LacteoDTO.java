@@ -6,7 +6,6 @@ public class LacteoDTO extends ProductoDTO {
 	private double cantidad;
 
 	public LacteoDTO() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public LacteoDTO(String tipoLacteo, double cantidad) {
@@ -24,7 +23,6 @@ public class LacteoDTO extends ProductoDTO {
 
 	public LacteoDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto) {
 		super(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getTipoLacteo() {
@@ -52,7 +50,6 @@ public class LacteoDTO extends ProductoDTO {
 
 	@Override
 	public String vencimiento() {
-		// TODO Auto-generated method stub
 		return super.vencimiento() + "Y se vence si no se refrigera bien o se junta con citricos";
 	}
 

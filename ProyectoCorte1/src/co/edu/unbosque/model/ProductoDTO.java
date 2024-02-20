@@ -9,7 +9,6 @@ public class ProductoDTO extends Caducidad {
 	private String marcaProducto;
 
 	public ProductoDTO() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public ProductoDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto) {

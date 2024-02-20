@@ -23,7 +23,6 @@ public class NoLacteoDTO extends ProductoDTO {
 
 	public NoLacteoDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto) {
 		super(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getTipoNoLacteo() {
