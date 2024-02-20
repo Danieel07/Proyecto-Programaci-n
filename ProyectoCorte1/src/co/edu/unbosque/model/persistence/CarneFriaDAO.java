@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 import co.edu.unbosque.model.CarneFriasDTO;
 
-public class CarnesFriasDAO implements CRUDOperation{
+public class CarneFriaDAO implements CRUDOperation{
 	private ArrayList<CarneFriasDTO> listaCarnes;
 
-	public CarnesFriasDAO() {
+	public CarneFriaDAO() {
 		listaCarnes = new ArrayList<>();
 	}
 	@Override
