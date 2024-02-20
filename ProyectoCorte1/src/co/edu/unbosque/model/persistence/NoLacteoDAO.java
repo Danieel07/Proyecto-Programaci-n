@@ -1,18 +1,17 @@
 package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
+import co.edu.unbosque.model.NoLacteoDTO;
 
-import co.edu.unbosque.model.ComidaChatarraDTO;
+public class NoLacteoDAO implements CRUDOperation{
+	private ArrayList<NoLacteoDTO> listaDeDatos;
 
-public class ComidaChatarraDAO implements CRUDOperation{
-	private ArrayList<ComidaChatarraDTO> listaDeDatos;
-
-	public ComidaChatarraDAO() {
+	public NoLacteoDAO() {
 		listaDeDatos = new ArrayList<>();
 	}
 	@Override
 	public void create(Object o) {
-		ComidaChatarraDTO datos = (ComidaChatarraDTO)o;
+		NoLacteoDTO datos = (NoLacteoDTO)o;
 		listaDeDatos.add(datos);
 	}
 
@@ -28,19 +27,19 @@ public class ComidaChatarraDAO implements CRUDOperation{
 
 	@Override
 	public boolean update(int index, Object o) {
-		ComidaChatarraDTO update = (ComidaChatarraDTO)o;
+		NoLacteoDTO update = (NoLacteoDTO)o;
 		if(index < 0|| index >= listaDeDatos.size()) {
 			return false;
 		}else {
-			ComidaChatarraDTO simpli = listaDeDatos.get(index);
+			NoLacteoDTO simpli = listaDeDatos.get(index);
 			simpli.setCodigoProduc(update.getCodigoProduc());
 			simpli.setMarcaProducto(update.getMarcaProducto());
 			simpli.setNombre(update.getNombre());
 			simpli.setPrecio(update.getPrecio());
 			simpli.setProducto(update.getProducto());
 			simpli.setTipoProduc(update.getTipoProduc());
-			simpli.setAzucar(update.isAzucar());
-			simpli.setTipoComida(update.getTipoComida());
+			simpli.setTipoNoLacteo(update.getTipoNoLacteo());
+			simpli.setOrigen(update.getOrigen());
 			return true;
 		}
 	}
@@ -49,7 +48,7 @@ public class ComidaChatarraDAO implements CRUDOperation{
 	public String read() {
 		String salida = "";
 		int conteo = 0;
-		for(ComidaChatarraDTO bloque: listaDeDatos) {
+		for(NoLacteoDTO bloque: listaDeDatos) {
 			salida += conteo + "->" + bloque.toString() + "\n";
 			conteo++;
 		}

@@ -6,7 +6,6 @@ public class NoLacteoDTO extends ProductoDTO {
 	private String origen; // Hace referencia a granja o procesado
 
 	public NoLacteoDTO() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public NoLacteoDTO(String tipoNoLacteo, String origen) {
@@ -52,7 +51,6 @@ public class NoLacteoDTO extends ProductoDTO {
 
 	@Override
 	public String vencimiento() {
-		// TODO Auto-generated method stub
 		return super.vencimiento() + "Se vencen en un tiempo mas corto si son artesanales";
 	}
 
