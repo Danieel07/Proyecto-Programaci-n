@@ -2,34 +2,32 @@ package co.edu.unbosque.model;
 
 public abstract class Caducidad implements FechaProducto {
 
-	private String producto;
+	private String productoCaducidadNombre;
 
 	public Caducidad() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Caducidad(String producto, int caducidad) {
 		super();
-		this.producto = producto;
+		this.productoCaducidadNombre = producto;
 	}
 
 	public String getProducto() {
-		return producto;
+		return productoCaducidadNombre;
 	}
 
 	public void setProducto(String producto) {
-		this.producto = producto;
+		this.productoCaducidadNombre = producto;
 	}
 
 	@Override
 	public String toString() {
-		return "Caducidad [producto=" + producto + "]";
+		return "Caducidad [producto=" + productoCaducidadNombre + "]";
 	}
 
 	@Override
 	public String vencimiento() {
-		// TODO Auto-generated method stub
-		return producto + "Caduca en:" + fechaCaducidad;
+		return productoCaducidadNombre + "Caduca en:" + fechaCaducidad;
 	}
 
 }
