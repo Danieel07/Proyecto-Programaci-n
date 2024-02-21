@@ -19,6 +19,7 @@ import java.awt.event.ActionEvent;
 import java.awt.FlowLayout;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JEditorPane;
 
 public class Inicio extends JFrame {
 
@@ -29,7 +30,6 @@ public class Inicio extends JFrame {
 	private JTextField txtCodigoDeProducto;
 	private JTextField txtMarcaDeProducto;
 	private JTextField txtNumIndice;
-	private JTable table;
 	
 	public Inicio() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\daniel\\git\\ProyectoDeCorte1\\ProyectoCorte1\\src\\co\\edu\\unbosque\\view\\icono.png"));
@@ -38,7 +38,7 @@ public class Inicio extends JFrame {
 		setFont(UIManager.getFont("Button.font"));
 		setTitle("Inventario de la Tienda");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 840, 535);
+		setBounds(100, 100, 840, 651);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -53,19 +53,19 @@ public class Inicio extends JFrame {
 		contentPane.add(lblTitulo);
 		
 		JButton btnCrear = new JButton("Crear");
-		btnCrear.setBounds(10, 443, 144, 42);
+		btnCrear.setBounds(10, 559, 144, 42);
 		btnCrear.setBackground(Color.GREEN);
 		btnCrear.setFont(new Font("Arial Black", Font.BOLD, 16));
 		contentPane.add(btnCrear);
 		
 		JButton btnEliminar = new JButton("Eliminar");
-		btnEliminar.setBounds(624, 443, 144, 42);
+		btnEliminar.setBounds(670, 559, 144, 42);
 		btnEliminar.setFont(new Font("Arial Black", Font.BOLD, 16));
 		btnEliminar.setBackground(Color.RED);
 		contentPane.add(btnEliminar);
 		
 		JButton btnActualizar = new JButton("Actualizar");
-		btnActualizar.setBounds(317, 443, 144, 42);
+		btnActualizar.setBounds(340, 559, 144, 42);
 		btnActualizar.setFont(new Font("Arial Black", Font.BOLD, 16));
 		btnActualizar.setBackground(Color.CYAN);
 		contentPane.add(btnActualizar);
@@ -163,7 +163,7 @@ public class Inicio extends JFrame {
 		contentPane.add(txtMarcaDeProducto);
 		
 		JPanel panelEliminarActualizar = new JPanel();
-		panelEliminarActualizar.setBounds(260, 148, 107, 60);
+		panelEliminarActualizar.setBounds(260, 148, 103, 60);
 		contentPane.add(panelEliminarActualizar);
 		panelEliminarActualizar.setLayout(null);
 		
@@ -177,25 +177,13 @@ public class Inicio extends JFrame {
 		panelEliminarActualizar.add(txtNumIndice);
 		
 		JPanel panelHijo = new JPanel();
-		panelHijo.setBounds(370, 58, 450, 350);
+		panelHijo.setBounds(370, 58, 450, 490);
 		contentPane.add(panelHijo);
 		panelHijo.setLayout(null);
 		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"Hola", null, null, null, null},
-				{"", null, null, null, null},
-				{null, null, null, null, null},
-				{"", null, null, null, null},
-				{"", null, null, null, null},
-				{null, null, null, null, null},
-			},
-			new String[] {
-				"Produco", "New column", "New column", "New column", "New column"
-			}
-		));
-		table.setBounds(10, 11, 430, 330);
-		panelHijo.add(table);
+		JPanel panelHijo2 = new JPanel();
+		panelHijo2.setLayout(null);
+		panelHijo2.setBounds(10, 301, 346, 247);
+		contentPane.add(panelHijo2);
 	}
 }
