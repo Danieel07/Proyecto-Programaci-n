@@ -9,6 +9,7 @@ public class ProductoDTO extends Caducidad {
 	private String marcaProducto;
 
 	public ProductoDTO() {
+		
 	}
 
 	public ProductoDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto) {
@@ -64,6 +65,10 @@ public class ProductoDTO extends Caducidad {
 	public String toString() {
 		return "ProductoDTO [nombre=" + nombre + ", precio=" + precio + ", tipoProduc=" + tipoProduc + ", codigoProduc="
 				+ codigoProduc + ", marcaProducto=" + marcaProducto + "]";
+	}
+	@Override
+	public String vencimiento() {
+		return super.vencimiento();
 	}
 
 }
