@@ -25,8 +25,7 @@ public class Controller {
 	}
 
 	public void crearProducto(ProductoDTO producto) {
-		CRUDOperation crudOperation = getProductoFactoryDAO(producto);
-		crudOperation.create(producto);
+		getProductoFactoryDAO(producto).create(producto);
 	}
 
 	public boolean updateProducto(int index, ProductoDTO producto) {
