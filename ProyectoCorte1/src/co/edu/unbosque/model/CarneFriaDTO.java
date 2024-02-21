@@ -1,28 +1,28 @@
 package co.edu.unbosque.model;
 
-public class CarneFriasDTO extends ProductoDTO {
+public class CarneFriaDTO extends ProductoDTO {
 
 	private String tipoCarne;
 	private double peso;
 
-	public CarneFriasDTO() {
+	public CarneFriaDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CarneFriasDTO(String tipoCarne, double peso) {
+	public CarneFriaDTO(String tipoCarne, double peso) {
 		super();
 		this.tipoCarne = tipoCarne;
 		this.peso = peso;
 	}
 
-	public CarneFriasDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
+	public CarneFriaDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
 			String tipoCarne, double peso) {
 		super(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
 		this.tipoCarne = tipoCarne;
 		this.peso = peso;
 	}
 
-	public CarneFriasDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto) {
+	public CarneFriaDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto) {
 		super(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
 		// TODO Auto-generated constructor stub
 	}

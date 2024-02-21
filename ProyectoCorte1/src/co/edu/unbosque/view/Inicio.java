@@ -3,9 +3,6 @@ package co.edu.unbosque.view;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.Window.Type;
-import java.awt.Frame;
-import java.awt.Font;
 import javax.swing.UIManager;
 import java.awt.Color;
 import java.awt.Toolkit;
@@ -13,13 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.JTextField;
-import javax.swing.JList;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.FlowLayout;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JEditorPane;
+import java.awt.Font;
 
 public class Inicio extends JFrame {
 
@@ -185,5 +178,6 @@ public class Inicio extends JFrame {
 		panelHijo2.setLayout(null);
 		panelHijo2.setBounds(10, 301, 346, 247);
 		contentPane.add(panelHijo2);
+
 	}
 }
