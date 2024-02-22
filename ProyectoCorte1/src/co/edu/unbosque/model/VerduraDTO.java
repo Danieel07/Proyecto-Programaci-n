@@ -1,29 +1,59 @@
 package co.edu.unbosque.model;
 
 public class VerduraDTO extends ProductoDTO {
-
+	private static VerduraDTO instancia;
 	private String tipoVerdura;
 	private double peso;
 
 	public VerduraDTO() {
 	}
 
-	public VerduraDTO(String tipoVerdura, double peso) {
+	public static VerduraDTO getInstancia() {
+		if (instancia == null) {
+			instancia = new VerduraDTO();
+		}
+		return instancia;
+	}
+
+	private VerduraDTO(String tipoVerdura, double peso) {
 		super();
 		this.tipoVerdura = tipoVerdura;
 		this.peso = peso;
 	}
 
-	public VerduraDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
+	public static VerduraDTO getInstancia(String tipoVerdura, double peso) {
+		if (instancia == null) {
+			instancia = new VerduraDTO(tipoVerdura, peso);
+		}
+		return instancia;
+	}
+
+	private VerduraDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
 			String tipoVerdura, double peso) {
 		super(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
 		this.tipoVerdura = tipoVerdura;
 		this.peso = peso;
 	}
 
-	public VerduraDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto) {
+	public static VerduraDTO getInstancia(String nombre, int precio, String tipoProduc, String codigoProduc,
+			String marcaProducto, String tipoVerdura, double peso) {
+		if (instancia == null) {
+			instancia = new VerduraDTO(nombre, precio, tipoProduc, codigoProduc, marcaProducto, tipoVerdura, peso);
+		}
+		return instancia;
+	}
+
+	private VerduraDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto) {
 		super(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
 		// TODO Auto-generated constructor stub
+	}
+
+	public static VerduraDTO getInstancia(String nombre, int precio, String tipoProduc, String codigoProduc,
+			String marcaProducto) {
+		if (instancia == null) {
+			instancia = new VerduraDTO(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
+		}
+		return instancia;
 	}
 
 	public String getTipoVerdura() {

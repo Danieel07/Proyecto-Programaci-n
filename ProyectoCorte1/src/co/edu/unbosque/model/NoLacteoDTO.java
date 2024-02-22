@@ -1,27 +1,49 @@
 package co.edu.unbosque.model;
 
 public class NoLacteoDTO extends ProductoDTO {
-
+	private static NoLacteoDTO instancia;
 	private String tipoNoLacteo;
 	private String origen; // Hace referencia a granja o procesado
 
-	public NoLacteoDTO() {
+	private NoLacteoDTO() {
 	}
-
-	public NoLacteoDTO(String tipoNoLacteo, String origen) {
+	
+	public static NoLacteoDTO getInstancia(){
+		if(instancia == null) {
+			instancia = new NoLacteoDTO();
+		}
+		return instancia;
+	}
+	
+	private NoLacteoDTO(String tipoNoLacteo, String origen) {
 		super();
 		this.tipoNoLacteo = tipoNoLacteo;
 		this.origen = origen;
 	}
+	
+	public static NoLacteoDTO getInstancia(String tipoNoLacteo, String origen){
+		if(instancia == null) {
+			instancia = new NoLacteoDTO(tipoNoLacteo, origen);
+		}
+		return instancia;
+	}
 
-	public NoLacteoDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
+	private NoLacteoDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
 			String tipoNoLacteo, String origen) {
 		super(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
 		this.tipoNoLacteo = tipoNoLacteo;
 		this.origen = origen;
 	}
+	
+	public static NoLacteoDTO getInstancia(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
+			String tipoNoLacteo, String origen){
+		if(instancia == null) {
+			instancia = new NoLacteoDTO(nombre, precio, tipoProduc, codigoProduc, marcaProducto,tipoNoLacteo,origen);
+		}
+		return instancia;
+	}
 
-	public NoLacteoDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto) {
+	private NoLacteoDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto) {
 		super(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
 	}
 
