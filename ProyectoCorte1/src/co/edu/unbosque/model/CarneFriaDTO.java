@@ -1,30 +1,57 @@
 package co.edu.unbosque.model;
 
 public class CarneFriaDTO extends ProductoDTO {
-
+	private static CarneFriaDTO instancia;
 	private String tipoCarne;
 	private double peso;
 
-	public CarneFriaDTO() {
-		// TODO Auto-generated constructor stub
+	private CarneFriaDTO() {
+	}
+	
+	public static CarneFriaDTO getInstancia(){
+		if(instancia == null) {
+			instancia = new CarneFriaDTO();
+		}
+		return instancia;
 	}
 
-	public CarneFriaDTO(String tipoCarne, double peso) {
+	private CarneFriaDTO(String tipoCarne, double peso) {
 		super();
 		this.tipoCarne = tipoCarne;
 		this.peso = peso;
 	}
+	
+	public static CarneFriaDTO getInstancia(String tipoCarne, double peso){
+		if(instancia == null) {
+			instancia = new CarneFriaDTO(tipoCarne, peso);
+		}
+		return instancia;
+	}
 
-	public CarneFriaDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
+	private CarneFriaDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
 			String tipoCarne, double peso) {
 		super(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
 		this.tipoCarne = tipoCarne;
 		this.peso = peso;
 	}
+	
+	public static CarneFriaDTO getInstancia(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
+			String tipoCarne, double peso){
+		if(instancia == null) {
+			instancia = new CarneFriaDTO(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
+		}
+		return instancia;
+	}
 
-	public CarneFriaDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto) {
+	private CarneFriaDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto) {
 		super(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
-		// TODO Auto-generated constructor stub
+	}
+	
+	public static CarneFriaDTO getInstancia(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto){
+		if(instancia == null) {
+			instancia = new CarneFriaDTO(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
+		}
+		return instancia;
 	}
 
 	public String getTipoCarne() {

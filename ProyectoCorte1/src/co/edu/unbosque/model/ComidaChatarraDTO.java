@@ -1,30 +1,58 @@
 package co.edu.unbosque.model;
 
 public class ComidaChatarraDTO extends ProductoDTO {
-
+	private static ComidaChatarraDTO instancia;
 	private String tipoComida;
 	private boolean azucar;
 
-	public ComidaChatarraDTO() {
-		// TODO Auto-generated constructor stub
+	private ComidaChatarraDTO() {
 	}
+	
+	public static ComidaChatarraDTO getInstancia() {
+		if(instancia == null) {
+			instancia= new ComidaChatarraDTO();
+		}
+		return instancia;
+	}
+	
 
-	public ComidaChatarraDTO(String tipoComida, boolean azucar) {
+	private ComidaChatarraDTO(String tipoComida, boolean azucar) {
 		super();
 		this.tipoComida = tipoComida;
 		this.azucar = azucar;
 	}
+	
+	public static ComidaChatarraDTO getInstancia(String tipoComida, boolean azucar) {
+		if(instancia == null) {
+			instancia= new ComidaChatarraDTO(tipoComida, azucar);
+		}
+		return instancia;
+	}
+	
 
-	public ComidaChatarraDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
+	private ComidaChatarraDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
 			String tipoComida, boolean azucar) {
 		super(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
 		this.tipoComida = tipoComida;
 		this.azucar = azucar;
 	}
+	
+	public static ComidaChatarraDTO getInstancia(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
+			String tipoComida, boolean azucar) {
+		if(instancia == null) {
+			instancia= new ComidaChatarraDTO(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
+		}
+		return instancia;
+	}
 
-	public ComidaChatarraDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto) {
+	private ComidaChatarraDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto) {
 		super(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
-		// TODO Auto-generated constructor stub
+	}
+	public static ComidaChatarraDTO getInstancia(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto) {
+		if(instancia == null) {
+			instancia= new ComidaChatarraDTO(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
+		}
+		return instancia;
 	}
 
 	public String getTipoComida() {

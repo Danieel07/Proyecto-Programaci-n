@@ -58,6 +58,7 @@ public class Inicio extends JFrame {
 	private JPanel panelLacteo;
 	private JPanel panelNoLacteo;
 	private JPanel panelVerduras;
+	private JEditorPane txtListaDeProductuos;
 	
 	public Inicio() {
 		setBounds(new Rectangle(0, 0, 0, 0));
@@ -94,11 +95,11 @@ public class Inicio extends JFrame {
 				String marcaDeProducto = txtMarcaDeProducto.getText();
 				
 				if(TipoDeProducto == "Carnes Frias") {
-					String tipoCarne = txtTipodeCarne.getText();
-					String pesoStr = txtPeso.getText();
+					String tipoCarne = txtTipodeCarne.getText().toString();
+					String pesoStr = txtPeso.getText().toString();
 					double peso = Double.parseDouble(pesoStr);
-					ProductoDTO producto = new ProductoDTO(nombre, precio, TipoDeProducto, codigoProducto, marcaDeProducto);
-					controlador.crearCarneFria(producto);
+					Object producto = new ProductoDTO(nombre, precio, TipoDeProducto, codigoProducto, marcaDeProducto);
+					controlador.crearCarneFria(nombre, precio, TipoDeProducto, codigoProducto, marcaDeProducto, tipoCarne, peso);
 				}
 				
 				
@@ -164,6 +165,7 @@ public class Inicio extends JFrame {
 				panelLacteo.setVisible(false);
 				panelNoLacteo.setVisible(false);
 				panelVerduras.setVisible(false);
+				txtListaDeProductuos.setText(controlador.leerCarneFria());
 			}
 		});
 		btnCarnesFrias.setBackground(Color.WHITE);
@@ -330,7 +332,7 @@ public class Inicio extends JFrame {
 		contentPane.add(panelHijo);
 		panelHijo.setLayout(null);
 		
-		JEditorPane txtListaDeProductuos = new JEditorPane();
+		txtListaDeProductuos = new JEditorPane();
 		txtListaDeProductuos.setBounds(0, 0, 450, 490);
 		panelHijo.add(txtListaDeProductuos);
 		

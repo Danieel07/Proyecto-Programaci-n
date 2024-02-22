@@ -25,8 +25,8 @@ public class Controller {
 	}
 
 	// Metodos para crear productos:
-	public void crearCarneFria(Object producto) {
-		carneFriaDAO.create(producto);
+	public void crearCarneFria(String Nombre, int precio, String tipoProduct, String codigoProduct, String marca, String tipoCarne, double peso) {
+		carneFriaDAO.create(CarneFriaDTO.getInstancia(Nombre, precio, tipoProduct, codigoProduct, tipoProduct, tipoCarne, peso));
 		System.out.println("Creado Con Exito");
 	}
 
@@ -125,6 +125,14 @@ public class Controller {
 	}
 
 	// Metodos para actualizar productos:
+	public void actualizarCarneFria(int index, String Nombre, int precio, String tipoProduct, String codigoProduct, String marca, String tipoCarne, double peso) {
+		boolean actualizado = carneFriaDAO.update(index, CarneFriaDTO.getInstancia(Nombre, precio, tipoProduct, codigoProduct, tipoProduct, tipoCarne, peso));
+		if (actualizado) {
+			System.out.println("Actualizado con éxito");
+		} else {
+			System.out.println("No se pudo actualizar");
+		}
+	}
 	public void actualizarFrutaAcida(int index, Object producto) {
 		boolean actualizado = frutaAcidaDAO.update(index, producto);
 		if (actualizado) {
@@ -171,6 +179,9 @@ public class Controller {
 	}
 
 	// Metodos para leer productos:
+	public String leerCarneFria() {
+		return carneFriaDAO.read();
+	}
 	public String leerFrutaAcida() {
 		return frutaAcidaDAO.read();
 	}
