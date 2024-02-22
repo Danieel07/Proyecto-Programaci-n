@@ -98,7 +98,7 @@ public class Inicio extends JFrame {
 					String pesoStr = txtPeso.getText();
 					double peso = Double.parseDouble(pesoStr);
 					ProductoDTO producto = new ProductoDTO(nombre, precio, TipoDeProducto, codigoProducto, marcaDeProducto);
-					controlador.crearCarne(producto);
+					controlador.crearCarneFria(producto);
 				}
 				
 				

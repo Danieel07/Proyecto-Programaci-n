@@ -24,9 +24,170 @@ public class Controller {
 		verduraDAO = new VerduraDAO();
 	}
 
-	public void crearCarne(Object producto) {
+	// Metodos para crear productos:
+	public void crearCarneFria(Object producto) {
 		carneFriaDAO.create(producto);
 		System.out.println("Creado Con Exito");
 	}
 
+	public void crearComidaChatarra(Object producto) {
+		comidaChatarraDAO.create(producto);
+		System.out.println("Creado Con Exito");
+	}
+
+	public void crearFrutaAcida(Object producto) {
+		frutaAcidaDAO.create(producto);
+		System.out.println("Creado Con Exito");
+	}
+
+	public void crearFrutaDulce(Object producto) {
+		frutaDulceDAO.create(producto);
+		System.out.println("Creado Con Exito");
+	}
+
+	public void crearLacteo(Object producto) {
+		lacteoDAO.create(producto);
+		System.out.println("Creado Con Exito");
+	}
+
+	public void crearNoLacteo(Object producto) {
+		lacteoDAO.create(producto);
+		System.out.println("Creado Con Exito");
+	}
+
+	public void crearVerdura(Object producto) {
+		verduraDAO.create(producto);
+		System.out.println("Creado Con Exito");
+	}
+
+//Metodos para eliminar productos:
+	public void eliminarCarneFria(int index) {
+		boolean eliminado = carneFriaDAO.delete(index);
+		if (eliminado) {
+			System.out.println("Eliminado con exito");
+		} else {
+			System.out.println("No se pudo eliminar");
+		}
+	}
+
+	public void eliminarComidaChatarra(int index) {
+		boolean eliminado = comidaChatarraDAO.delete(index);
+		if (eliminado) {
+			System.out.println("Eliminado con exito");
+		} else {
+			System.out.println("No se pudo eliminar");
+		}
+	}
+
+	public void eliminarFrutaAcida(int index) {
+		boolean eliminado = frutaAcidaDAO.delete(index);
+		if (eliminado) {
+			System.out.println("Eliminado con éxito");
+		} else {
+			System.out.println("No se pudo eliminar");
+		}
+	}
+
+	public void eliminarFrutaDulce(int index) {
+		boolean eliminado = frutaDulceDAO.delete(index);
+		if (eliminado) {
+			System.out.println("Eliminado con éxito");
+		} else {
+			System.out.println("No se pudo eliminar");
+		}
+	}
+
+	public void eliminarLacteo(int index) {
+		boolean eliminado = lacteoDAO.delete(index);
+		if (eliminado) {
+			System.out.println("Eliminado con éxito");
+		} else {
+			System.out.println("No se pudo eliminar");
+		}
+	}
+
+	public void eliminarNoLacteo(int index) {
+		boolean eliminado = noLacteoDAO.delete(index);
+		if (eliminado) {
+			System.out.println("Eliminado con éxito");
+		} else {
+			System.out.println("No se pudo eliminar");
+		}
+	}
+
+	public void eliminarVerdura(int index) {
+		boolean eliminado = verduraDAO.delete(index);
+		if (eliminado) {
+			System.out.println("Eliminado con éxito");
+		} else {
+			System.out.println("No se pudo eliminar");
+		}
+	}
+
+	// Metodos para actualizar productos:
+	public void actualizarFrutaAcida(int index, Object producto) {
+		boolean actualizado = frutaAcidaDAO.update(index, producto);
+		if (actualizado) {
+			System.out.println("Actualizado con éxito");
+		} else {
+			System.out.println("No se pudo actualizar");
+		}
+	}
+
+	public void actualizarFrutaDulce(int index, Object producto) {
+		boolean actualizado = frutaDulceDAO.update(index, producto);
+		if (actualizado) {
+			System.out.println("Actualizado con éxito");
+		} else {
+			System.out.println("No se pudo actualizar");
+		}
+	}
+
+	public void actualizarLacteo(int index, Object producto) {
+		boolean actualizado = lacteoDAO.update(index, producto);
+		if (actualizado) {
+			System.out.println("Actualizado con éxito");
+		} else {
+			System.out.println("No se pudo actualizar");
+		}
+	}
+
+	public void actualizarNoLacteo(int index, Object producto) {
+		boolean actualizado = noLacteoDAO.update(index, producto);
+		if (actualizado) {
+			System.out.println("Actualizado con éxito");
+		} else {
+			System.out.println("No se pudo actualizar");
+		}
+	}
+
+	public void actualizarVerdura(int index, Object producto) {
+		boolean actualizado = verduraDAO.update(index, producto);
+		if (actualizado) {
+			System.out.println("Actualizado con éxito");
+		} else {
+			System.out.println("No se pudo actualizar");
+		}
+	}
+
+	// Metodos para leer productos:
+	public String leerFrutaAcida() {
+		return frutaAcidaDAO.read();
+	}
+
+	public String leerFrutaDulce() {
+		return frutaDulceDAO.read();
+	}
+
+	public String leerLacteo() {
+		return lacteoDAO.read();
+	}
+
+	public String leerNoLacteo() {
+		return noLacteoDAO.read();
+	}
+
+	public String leerVerdura() {
+		return verduraDAO.read();
+	}
 }
