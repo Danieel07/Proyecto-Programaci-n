@@ -30,34 +30,34 @@ public class Controller {
 		System.out.println("Creado Con Exito");
 	}
 
-	public void crearComidaChatarra(Object producto) {
-		comidaChatarraDAO.create(producto);
+	public void crearComidaChatarra(String Nombre, int precio, String tipoProduct, String codigoProduct, String marca, String tipoComidaChatarra, boolean tieneAzucar) {
+		comidaChatarraDAO.create(ComidaChatarraDTO.getInstancia(Nombre, precio, tipoProduct, codigoProduct, marca, tipoComidaChatarra, tieneAzucar));
 		System.out.println("Creado Con Exito");
 	}
 
-	public void crearFrutaAcida(Object producto) {
-		frutaAcidaDAO.create(producto);
+	public void crearFrutaAcida(String Nombre, int precio, String tipoProduct, String codigoProduct, String marca, boolean esDeTemporada, String metodoConseva, int nivelAcidez, boolean paraJugos) {
+		frutaAcidaDAO.create(FrutaAcidaDTO.getInstancia(Nombre, precio, tipoProduct, codigoProduct, marca, esDeTemporada, metodoConseva, nivelAcidez, paraJugos));
 		System.out.println("Creado Con Exito");
 	}
 
-	public void crearFrutaDulce(Object producto) {
-		frutaDulceDAO.create(producto);
+	public void crearFrutaDulce(String Nombre, int precio, String tipoProduct, String codigoProduct, String marca, boolean esDeTemporada, String metodoConseva, int nivelDeAzucar, boolean paraPostres) {
+		frutaDulceDAO.create(FrutaDulceDTO.getInstancia(Nombre, precio, tipoProduct, codigoProduct, marca, esDeTemporada, metodoConseva, nivelDeAzucar, paraPostres));
 		System.out.println("Creado Con Exito");
 	}
 
-	public void crearLacteo(Object producto) {
-		lacteoDAO.create(producto);
-		System.out.println("Creado Con Exito");
+	public void crearLacteo(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto, String tipoLacteo, double cantidad) {
+	    lacteoDAO.create(LacteoDTO.getInstancia(nombre, precio, tipoProduc, codigoProduc, marcaProducto, tipoLacteo, cantidad));
+	    System.out.println("Creado Con Éxito");
 	}
 
-	public void crearNoLacteo(Object producto) {
-		lacteoDAO.create(producto);
-		System.out.println("Creado Con Exito");
+	public void crearNoLacteo(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto, String tipoNoLacteo, String origen) {
+	    noLacteoDAO.create(NoLacteoDTO.getInstancia(nombre, precio, tipoProduc, codigoProduc, marcaProducto, tipoNoLacteo, origen));
+	    System.out.println("Creado Con Éxito");
 	}
 
-	public void crearVerdura(Object producto) {
-		verduraDAO.create(producto);
-		System.out.println("Creado Con Exito");
+	public void crearVerdura(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto, String tipoVerdura, double peso) {
+	    verduraDAO.create(VerduraDTO.getInstancia(nombre, precio, tipoProduc, codigoProduc, marcaProducto, tipoVerdura, peso));
+	    System.out.println("Creado Con Éxito");
 	}
 
 //Metodos para eliminar productos:
