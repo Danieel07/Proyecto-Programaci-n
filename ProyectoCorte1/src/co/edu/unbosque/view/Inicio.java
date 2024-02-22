@@ -500,7 +500,7 @@ public class Inicio extends JFrame {
 		lblSePuedenHacer.setBounds(10, 181, 159, 14);
 		panelFrutaDulce.add(lblSePuedenHacer);
 		
-		JList listJugosSioNo_1 = new JList();
+		JList<?> listJugosSioNo_1 = new JList();
 		listJugosSioNo_1.setModel(new AbstractListModel() {
 			String[] values = new String[] {"Si", "No"};
 			public int getSize() {
