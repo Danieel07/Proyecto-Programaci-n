@@ -133,8 +133,18 @@ public class Controller {
 			System.out.println("No se pudo actualizar");
 		}
 	}
-	public void actualizarFrutaAcida(int index, Object producto) {
-		boolean actualizado = frutaAcidaDAO.update(index, producto);
+	
+	public void actualizarComidaChatarra(int index, String Nombre, int precio, String tipoProduct, String codigoProduct, String marca, String tipoComidaChatarra, boolean tieneAzucar) {
+		boolean actualizado = comidaChatarraDAO.update(index, ComidaChatarraDTO.getInstancia(Nombre, precio, tipoProduct, codigoProduct, marca, tipoComidaChatarra, tieneAzucar));
+		if (actualizado) {
+			System.out.println("Actualizado con éxito");
+		} else {
+			System.out.println("No se pudo actualizar");
+		}
+	}
+	
+	public void actualizarFrutaAcida(int index,String Nombre, int precio, String tipoProduct, String codigoProduct, String marca, boolean esDeTemporada, String metodoConseva, int nivelAcidez, boolean paraJugos) {
+		boolean actualizado = frutaAcidaDAO.update(index, FrutaAcidaDTO.getInstancia(Nombre, precio, tipoProduct, codigoProduct, marca, esDeTemporada, metodoConseva, nivelAcidez, paraJugos));
 		if (actualizado) {
 			System.out.println("Actualizado con éxito");
 		} else {
@@ -142,8 +152,8 @@ public class Controller {
 		}
 	}
 
-	public void actualizarFrutaDulce(int index, Object producto) {
-		boolean actualizado = frutaDulceDAO.update(index, producto);
+	public void actualizarFrutaDulce(int index, String Nombre, int precio, String tipoProduct, String codigoProduct, String marca, boolean esDeTemporada, String metodoConseva, int nivelDeAzucar, boolean paraPostres) {
+		boolean actualizado = frutaDulceDAO.update(index, FrutaDulceDTO.getInstancia(Nombre, precio, tipoProduct, codigoProduct, marca, esDeTemporada, metodoConseva, nivelDeAzucar, paraPostres));
 		if (actualizado) {
 			System.out.println("Actualizado con éxito");
 		} else {
