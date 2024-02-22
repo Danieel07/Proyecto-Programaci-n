@@ -1,54 +1,107 @@
 package co.edu.unbosque.model;
 
 public class FrutaAcidaDTO extends FrutaDTO {
-
+	private static FrutaAcidaDTO instancia;
 	private int nivelAcidez;
 	private boolean paraJugos;
 
-	public FrutaAcidaDTO() {
-		// TODO Auto-generated constructor stub
+	private FrutaAcidaDTO() {}
+	
+	public static FrutaAcidaDTO getInstancia() {
+		if(instancia == null) {
+			instancia= new FrutaAcidaDTO();
+		}
+		return instancia;
 	}
 
-	public FrutaAcidaDTO(int nivelAcidez, boolean paraJugos) {
+	private FrutaAcidaDTO(int nivelAcidez, boolean paraJugos) {
 		super();
 		this.nivelAcidez = nivelAcidez;
 		this.paraJugos = paraJugos;
 	}
+	
+	public static FrutaAcidaDTO getInstancia(int nivelAcidez, boolean paraJugos) {
+		if(instancia == null) {
+			instancia= new FrutaAcidaDTO(nivelAcidez,paraJugos);
+		}
+		return instancia;
+	}
 
-	public FrutaAcidaDTO(boolean deTemporada, String metodoConservacion, int nivelAcidez, boolean paraJugos) {
+	private FrutaAcidaDTO(boolean deTemporada, String metodoConservacion, int nivelAcidez, boolean paraJugos) {
 		super(deTemporada, metodoConservacion);
 		this.nivelAcidez = nivelAcidez;
 		this.paraJugos = paraJugos;
 	}
+	public static FrutaAcidaDTO getInstancia(boolean deTemporada, String metodoConservacion, int nivelAcidez, boolean paraJugos) {
+		if(instancia == null) {
+			instancia= new FrutaAcidaDTO(deTemporada, metodoConservacion);
+		}
+		return instancia;
+	}
 
-	public FrutaAcidaDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
+	private FrutaAcidaDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
 			boolean deTemporada, String metodoConservacion, int nivelAcidez, boolean paraJugos) {
 		super(nombre, precio, tipoProduc, codigoProduc, marcaProducto, deTemporada, metodoConservacion);
 		this.nivelAcidez = nivelAcidez;
 		this.paraJugos = paraJugos;
 	}
+	
+	public static FrutaAcidaDTO getInstancia(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
+			boolean deTemporada, String metodoConservacion, int nivelAcidez, boolean paraJugos) {
+		if(instancia == null) {
+			instancia= new FrutaAcidaDTO(nombre, precio, tipoProduc, codigoProduc, marcaProducto, deTemporada, metodoConservacion);
+		}
+		return instancia;
+	}
 
-	public FrutaAcidaDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
+	private FrutaAcidaDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
 			int nivelAcidez, boolean paraJugos) {
 		super(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
 		this.nivelAcidez = nivelAcidez;
 		this.paraJugos = paraJugos;
 	}
+	
+	public static FrutaAcidaDTO getInstancia(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
+			int nivelAcidez, boolean paraJugos) {
+		if(instancia == null) {
+			instancia= new FrutaAcidaDTO(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
+		}
+		return instancia;
+	}
 
-	public FrutaAcidaDTO(boolean deTemporada, String metodoConservacion) {
+	private FrutaAcidaDTO(boolean deTemporada, String metodoConservacion) {
 		super(deTemporada, metodoConservacion);
 		// TODO Auto-generated constructor stub
 	}
-
-	public FrutaAcidaDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
-			boolean deTemporada, String metodoConservacion) {
-		super(nombre, precio, tipoProduc, codigoProduc, marcaProducto, deTemporada, metodoConservacion);
-		// TODO Auto-generated constructor stub
+	
+	public static FrutaAcidaDTO getInstancia(boolean deTemporada, String metodoConservacion) {
+		if(instancia == null) {
+			instancia= new FrutaAcidaDTO(deTemporada, metodoConservacion);
+		}
+		return instancia;
 	}
 
-	public FrutaAcidaDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto) {
+	private FrutaAcidaDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
+			boolean deTemporada, String metodoConservacion) {
+		super(nombre, precio, tipoProduc, codigoProduc, marcaProducto, deTemporada, metodoConservacion);
+	}
+	public static FrutaAcidaDTO getInstancia(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
+			boolean deTemporada, String metodoConservacion) {
+		if(instancia == null) {
+			instancia= new FrutaAcidaDTO(nombre, precio, tipoProduc, codigoProduc, marcaProducto, deTemporada, metodoConservacion);
+		}
+		return instancia;
+	}
+
+	private FrutaAcidaDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto) {
 		super(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
-		// TODO Auto-generated constructor stub
+	}
+	
+	public static FrutaAcidaDTO getInstancia(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto) {
+		if(instancia == null) {
+			instancia= new FrutaAcidaDTO(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
+		}
+		return instancia;
 	}
 
 	public int getNivelAcidez() {
@@ -77,7 +130,6 @@ public class FrutaAcidaDTO extends FrutaDTO {
 
 	@Override
 	public String vencimiento() {
-		// TODO Auto-generated method stub
 		return super.vencimiento() + "Y se vence mucho mas rapido si se deja cerca a frutas dañadas";
 	}
 

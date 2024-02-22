@@ -1,50 +1,105 @@
 package co.edu.unbosque.model;
 
 public class FrutaDulceDTO extends FrutaDTO {
-
+	private static FrutaDulceDTO instancia;
 	private int nivelDulzura;
 	private boolean paraPostres;
 
-	public FrutaDulceDTO() {
+	private FrutaDulceDTO() {
 	}
-
-	public FrutaDulceDTO(int nivelDulzura, boolean paraPostres) {
+	
+	public static FrutaDulceDTO getInstancia() {
+		if(instancia == null) {
+			instancia= new FrutaDulceDTO();
+		}
+		return instancia;
+	}
+	
+	private FrutaDulceDTO(int nivelDulzura, boolean paraPostres) {
 		super();
 		this.nivelDulzura = nivelDulzura;
 		this.paraPostres = paraPostres;
 	}
+	
+	public static FrutaDulceDTO getInstancia(int nivelDulzura, boolean paraPostres) {
+		if(instancia == null) {
+			instancia= new FrutaDulceDTO(nivelDulzura,paraPostres);
+		}
+		return instancia;
+	}
 
-	public FrutaDulceDTO(boolean deTemporada, String metodoConservacion, int nivelDulzura, boolean paraPostres) {
+	private FrutaDulceDTO(boolean deTemporada, String metodoConservacion, int nivelDulzura, boolean paraPostres) {
 		super(deTemporada, metodoConservacion);
 		this.nivelDulzura = nivelDulzura;
 		this.paraPostres = paraPostres;
 	}
+	
+	public static FrutaDulceDTO getInstancia(boolean deTemporada, String metodoConservacion, int nivelDulzura, boolean paraPostres) {
+		if(instancia == null) {
+			instancia= new FrutaDulceDTO(deTemporada, metodoConservacion);
+		}
+		return instancia;
+	}
 
-	public FrutaDulceDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
+	private FrutaDulceDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
 			boolean deTemporada, String metodoConservacion, int nivelDulzura, boolean paraPostres) {
 		super(nombre, precio, tipoProduc, codigoProduc, marcaProducto, deTemporada, metodoConservacion);
 		this.nivelDulzura = nivelDulzura;
 		this.paraPostres = paraPostres;
 	}
+	public static FrutaDulceDTO getInstancia(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
+			boolean deTemporada, String metodoConservacion, int nivelDulzura, boolean paraPostres) {
+		if(instancia == null) {
+			instancia= new FrutaDulceDTO(nombre, precio, tipoProduc, codigoProduc, marcaProducto, deTemporada, metodoConservacion);
+		}
+		return instancia;
+	}
 
-	public FrutaDulceDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
+	private FrutaDulceDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
 			int nivelDulzura, boolean paraPostres) {
 		super(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
 		this.nivelDulzura = nivelDulzura;
 		this.paraPostres = paraPostres;
 	}
-
-	public FrutaDulceDTO(boolean deTemporada, String metodoConservacion) {
-		super(deTemporada, metodoConservacion);
+	
+	public static FrutaDulceDTO getInstancia(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
+			int nivelDulzura, boolean paraPostres) {
+		if(instancia == null) {
+			instancia= new FrutaDulceDTO(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
+		}
+		return instancia;
 	}
 
-	public FrutaDulceDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
+	private FrutaDulceDTO(boolean deTemporada, String metodoConservacion) {
+		super(deTemporada, metodoConservacion);
+	}
+	public static FrutaDulceDTO getInstancia(boolean deTemporada, String metodoConservacion) {
+		if(instancia == null) {
+			instancia= new FrutaDulceDTO(deTemporada, metodoConservacion);
+		}
+		return instancia;
+	}
+
+	private FrutaDulceDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
 			boolean deTemporada, String metodoConservacion) {
 		super(nombre, precio, tipoProduc, codigoProduc, marcaProducto, deTemporada, metodoConservacion);
 	}
+	public static FrutaDulceDTO getInstancia(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto,
+			boolean deTemporada, String metodoConservacion) {
+		if(instancia == null) {
+			instancia= new FrutaDulceDTO(nombre, precio, tipoProduc, codigoProduc, marcaProducto, deTemporada, metodoConservacion);
+		}
+		return instancia;
+	}
 
-	public FrutaDulceDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto) {
+	private FrutaDulceDTO(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto) {
 		super(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
+	}
+	public static FrutaDulceDTO getInstancia(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto) {
+		if(instancia == null) {
+			instancia= new FrutaDulceDTO(nombre, precio, tipoProduc, codigoProduc, marcaProducto);
+		}
+		return instancia;
 	}
 
 	public int getNivelDulzura() {
