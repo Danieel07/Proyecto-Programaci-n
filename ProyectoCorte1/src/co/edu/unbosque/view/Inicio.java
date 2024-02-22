@@ -59,6 +59,7 @@ public class Inicio extends JFrame {
 	private JPanel panelNoLacteo;
 	private JPanel panelVerduras;
 	private JEditorPane txtListaDeProductuos;
+	private JList listAzucarSioNo;
 	
 	public Inicio() {
 		setBounds(new Rectangle(0, 0, 0, 0));
@@ -98,8 +99,31 @@ public class Inicio extends JFrame {
 					String tipoCarne = txtTipodeCarne.getText().toString();
 					String pesoStr = txtPeso.getText().toString();
 					double peso = Double.parseDouble(pesoStr);
-					Object producto = new ProductoDTO(nombre, precio, TipoDeProducto, codigoProducto, marcaDeProducto);
 					controlador.crearCarneFria(nombre, precio, TipoDeProducto, codigoProducto, marcaDeProducto, tipoCarne, peso);
+				}
+				else if(TipoDeProducto == "Comida Chatarra") {
+					String tipoComidaChatarra = txtTipoDeComidaChatarra.getText();
+					String tieneAzucar = listAzucarSioNo.getSelectedValue().toString();
+					boolean isAzucar = false;
+					if(tieneAzucar == "Si") {
+						isAzucar = true;
+					}
+					controlador.crearComidaChatarra(nombre, precio, TipoDeProducto, codigoProducto, marcaDeProducto, tipoComidaChatarra, isAzucar);
+				}
+				else if(TipoDeProducto == "Fruta Dulce") {
+					
+				}
+				else if(TipoDeProducto == "Fruta Acida") {
+					
+				}
+				else if(TipoDeProducto == "Lacteo") {
+				
+				}
+				else if(TipoDeProducto == "No Lacteo") {
+					
+				}
+				else if(TipoDeProducto == "Verduras") {
+					
 				}
 				
 				
@@ -368,7 +392,7 @@ public class Inicio extends JFrame {
 		lblTieneAzucar.setBounds(10, 11, 117, 14);
 		panelComidaChatarra.add(lblTieneAzucar);
 		
-		JList listAzucarSioNo = new JList();
+		listAzucarSioNo = new JList();
 		listAzucarSioNo.setModel(new AbstractListModel() {
 			String[] values = new String[] {"Si", "No"};
 			public int getSize() {

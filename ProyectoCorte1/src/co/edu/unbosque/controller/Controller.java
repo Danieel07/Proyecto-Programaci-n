@@ -30,8 +30,8 @@ public class Controller {
 		System.out.println("Creado Con Exito");
 	}
 
-	public void crearComidaChatarra(Object producto) {
-		comidaChatarraDAO.create(producto);
+	public void crearComidaChatarra(String Nombre, int precio, String tipoProduct, String codigoProduct, String marca, String tipoComidaChatarra, boolean tieneAzucar) {
+		comidaChatarraDAO.create(ComidaChatarraDTO.getInstancia(Nombre, precio, tipoProduct, codigoProduct, marca, tipoComidaChatarra, tieneAzucar));
 		System.out.println("Creado Con Exito");
 	}
 
