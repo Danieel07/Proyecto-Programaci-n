@@ -5,11 +5,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import co.edu.unbosque.controller.Controller;
-import co.edu.unbosque.model.ProductoDTO;
 
 import javax.swing.UIManager;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Toolkit;
 import javax.swing.JLabel;
@@ -46,7 +44,7 @@ public class Inicio extends JFrame {
 	private JTextField txtMetodoConservaDulce;
 	private JTextField txtNivelDeAzucar;
 	private JTextField txtTipoLacteo;
-	private JTextField textField_6;
+	private JTextField txtCantidad;
 	private JTextField txtTipoNoLacteo;
 	private JTextField txtOrigenAnimal;
 	private JTextField txtTipoVerdura;
@@ -64,6 +62,7 @@ public class Inicio extends JFrame {
 	private JList listPostresSioNoDulce;
 	private JList listTempSioNo;
 	private JList listTempSioNoDulce;
+	private JLabel lblCreadoConExtio;
 
 	public Inicio() {
 		setBounds(new Rectangle(0, 0, 0, 0));
@@ -151,13 +150,13 @@ public class Inicio extends JFrame {
 							isTemporada, metodoConserva, nvDulcura, isParaPostre);
 				} else if (TipoDeProducto == "Lacteo") {
 					String tipoLacteo = txtTipoLacteo.getText().toString();
-					String cantidadStr = txtTipoLacteo.getText().toString();
+					String cantidadStr = txtCantidad.getText().toString();
 					double cantidad = Double.parseDouble(cantidadStr);
 					controlador.crearLacteo(nombre, precio, TipoDeProducto, codigoProducto, marcaDeProducto, tipoLacteo,
 							cantidad);
 				} else if (TipoDeProducto == "No Lacteo") {
 					String tipoNoLacteo = txtTipoNoLacteo.getText().toString();
-					String origen = txtTipoNoLacteo.getText().toString();
+					String origen = txtOrigenAnimal.getText().toString();
 					controlador.crearNoLacteo(nombre, precio, TipoDeProducto, codigoProducto, marcaDeProducto,
 							tipoNoLacteo, origen);
 				} else if (TipoDeProducto == "Verduras") {
@@ -166,8 +165,28 @@ public class Inicio extends JFrame {
 					double peso = Double.parseDouble(pesoStr);
 					controlador.crearVerdura(nombre, precio, TipoDeProducto, codigoProducto, marcaDeProducto,
 							tipoVerdura, peso);
+				}else {
+					lblCreadoConExtio.setText("Algo salio mal");
+					lblCreadoConExtio.setVisible(true);
 				}
-
+				
+				txtNombreProducto.setText("");
+				txtPrecio.setText("");
+				txtCodigoDeProducto.setText("");
+				txtMarcaDeProducto.setText("");
+				txtTipodeCarne.setText("");
+				txtPeso.setText("");
+				txtTipoDeComidaChatarra.setText("");
+				txtNivelDeAcidez.setText("");
+				txtMetodoDeConserva.setText("");
+				txtNivelDeAzucar.setText("");
+				txtMetodoConservaDulce.setText("");
+				txtTipoLacteo.setText("");
+				txtTipoNoLacteo.setText("");
+				txtOrigenAnimal.setText("");
+				txtCantidad.setText("");
+				lblCreadoConExtio.setText("Creado Con Exito");
+				lblCreadoConExtio.setVisible(true);
 			}
 		});
 		btnCrear.setForeground(Color.BLACK);
@@ -176,6 +195,33 @@ public class Inicio extends JFrame {
 		contentPane.add(btnCrear);
 
 		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String indexStr = txtNumIndice.getText().toString();
+				int index = Integer.parseInt(indexStr);
+				if (TipoDeProducto == "Carnes Frias") {
+					controlador.eliminarCarneFria(index);
+				} else if (TipoDeProducto == "Comida Chatarra") {
+					controlador.eliminarComidaChatarra(index);
+				} else if (TipoDeProducto == "Fruta Acida") {
+					controlador.eliminarFrutaAcida(index);
+				} else if (TipoDeProducto == "Fruta Dulce") {
+					controlador.eliminarFrutaDulce(index);
+				} else if (TipoDeProducto == "Lacteo") {
+					controlador.eliminarLacteo(index);
+				} else if (TipoDeProducto == "No Lacteo") {
+					controlador.eliminarNoLacteo(index);
+				} else if (TipoDeProducto == "Verduras") {
+					controlador.eliminarVerdura(index);
+				}else {
+					lblCreadoConExtio.setText("Algo salio mal");
+					lblCreadoConExtio.setVisible(true);
+				}
+				lblCreadoConExtio.setText("ELiminado Con Exito");
+				lblCreadoConExtio.setVisible(true);
+			}
+		});
 		btnEliminar.setBounds(670, 559, 144, 42);
 		btnEliminar.setForeground(Color.BLACK);
 		btnEliminar.setFont(new Font("Arial Black", Font.BOLD, 16));
@@ -183,6 +229,110 @@ public class Inicio extends JFrame {
 		contentPane.add(btnEliminar);
 
 		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String nombre = txtNombreProducto.getText();
+				String precioStr = txtPrecio.getText();
+				int precio = Integer.parseInt(precioStr);
+				String codigoProducto = txtCodigoDeProducto.getText();
+				String marcaDeProducto = txtMarcaDeProducto.getText();
+				String indexStr = txtNumIndice.getText().toString();
+				int index = Integer.parseInt(indexStr);
+
+				if (TipoDeProducto == "Carnes Frias") {
+					String tipoCarne = txtTipodeCarne.getText().toString();
+					String pesoStr = txtPeso.getText().toString();
+					double peso = Double.parseDouble(pesoStr);
+					controlador.actualizarCarneFria(index, nombre, precio, TipoDeProducto, codigoProducto, marcaDeProducto,
+							tipoCarne, peso);
+				} else if (TipoDeProducto == "Comida Chatarra") {
+					String tipoComidaChatarra = txtTipoDeComidaChatarra.getText();
+					String tieneAzucar = listAzucarSioNo.getSelectedValue().toString();
+					boolean isAzucar = false;
+					if (tieneAzucar == "Si") {
+						isAzucar = true;
+					}
+					controlador.actualizarComidaChatarra(index, nombre, precio, TipoDeProducto, codigoProducto, marcaDeProducto,
+							tipoComidaChatarra, isAzucar);
+					
+				} else if (TipoDeProducto == "Fruta Acida") {
+					String nvAcidezStr = txtNivelDeAcidez.getText();
+					int nivelAcidez = Integer.parseInt(nvAcidezStr);
+
+					String paraJugosStr = listJugosSioNo.getSelectedValue().toString();
+
+					boolean isJugos = false;
+					if (paraJugosStr == "Si") {
+						isJugos = true;
+					}
+					String deTemporadaStr = listTempSioNo.getSelectedValue().toString();
+					boolean isTemporada = false;
+					if (deTemporadaStr == "Si") {
+						isTemporada = true;
+					}
+					String metodoDeConserva = txtMetodoDeConserva.getText();
+					controlador.actualizarFrutaAcida(index, nombre, precio, TipoDeProducto, codigoProducto, marcaDeProducto,
+							isTemporada, metodoDeConserva, nivelAcidez, isJugos);
+					
+				} else if (TipoDeProducto == "Fruta Dulce") {
+					String nvDulcuraStr = txtNivelDeAzucar.getText().toString();
+					int nvDulcura = Integer.parseInt(nvDulcuraStr);
+					String paraPostreStr = listPostresSioNoDulce.getSelectedValue().toString();
+					boolean isParaPostre = false;
+					if (paraPostreStr == "Si") {
+						isParaPostre = true;
+					}
+					String deTempStr = listTempSioNoDulce.getSelectedValue().toString();
+					boolean isTemporada = false;
+					if (deTempStr == "Si") {
+						isTemporada = true;
+					}
+					String metodoConserva = txtMetodoConservaDulce.getText().toString();
+					controlador.actualizarFrutaDulce(index ,nombre, precio, TipoDeProducto, codigoProducto, marcaDeProducto,
+							isTemporada, metodoConserva, nvDulcura, isParaPostre);
+					
+				} else if (TipoDeProducto == "Lacteo") {
+					String tipoLacteo = txtTipoLacteo.getText().toString();
+					String cantidadStr = txtTipoLacteo.getText().toString();
+					double cantidad = Double.parseDouble(cantidadStr);
+					controlador.actualizarLacteo(index, nombre, precio, TipoDeProducto, codigoProducto, marcaDeProducto, tipoLacteo,
+							cantidad);
+				} else if (TipoDeProducto == "No Lacteo") {
+					String tipoNoLacteo = txtTipoNoLacteo.getText().toString();
+					String origen = txtTipoNoLacteo.getText().toString();
+					controlador.actualizarNoLacteo(index, nombre, precio, TipoDeProducto, codigoProducto, marcaDeProducto,
+							tipoNoLacteo, origen);
+				} else if (TipoDeProducto == "Verduras") {
+					String tipoVerdura = txtTipoVerdura.getText();
+					String pesoStr = txtPesoVerduras.getText();
+					double peso = Double.parseDouble(pesoStr);
+					controlador.actualizarVerdura(index, nombre, precio, TipoDeProducto, codigoProducto, marcaDeProducto,
+							tipoVerdura, peso);
+				}else {
+					lblCreadoConExtio.setText("Algo salio mal");
+					lblCreadoConExtio.setVisible(true);
+				}
+				txtNombreProducto.setText("");
+				txtPrecio.setText("");
+				txtCodigoDeProducto.setText("");
+				txtMarcaDeProducto.setText("");
+				txtTipodeCarne.setText("");
+				txtPeso.setText("");
+				txtTipoDeComidaChatarra.setText("");
+				txtNivelDeAcidez.setText("");
+				txtMetodoDeConserva.setText("");
+				txtNivelDeAzucar.setText("");
+				txtMetodoConservaDulce.setText("");
+				txtTipoLacteo.setText("");
+				txtTipoNoLacteo.setText("");
+				txtOrigenAnimal.setText("");
+				txtCantidad.setText("");
+				lblCreadoConExtio.setText("Actualizado Con Exito");
+				lblCreadoConExtio.setVisible(true);
+				
+			}
+		});
 		btnActualizar.setBounds(340, 559, 144, 42);
 		btnActualizar.setForeground(Color.BLACK);
 		btnActualizar.setFont(new Font("Arial Black", Font.BOLD, 16));
@@ -250,6 +400,7 @@ public class Inicio extends JFrame {
 				panelNoLacteo.setVisible(false);
 				panelVerduras.setVisible(false);
 				panelCarnesFrias.setVisible(false);
+				txtListaDeProductuos.setText(controlador.leerComidaChatarra());
 			}
 		});
 		btnComidaChatarra.setBackground(Color.WHITE);
@@ -274,6 +425,7 @@ public class Inicio extends JFrame {
 				panelVerduras.setVisible(false);
 				panelCarnesFrias.setVisible(false);
 				panelComidaChatarra.setVisible(false);
+				txtListaDeProductuos.setText(controlador.leerFrutaDulce());
 			}
 
 		});
@@ -295,6 +447,7 @@ public class Inicio extends JFrame {
 				panelCarnesFrias.setVisible(false);
 				panelComidaChatarra.setVisible(false);
 				panelFrutaDulce.setVisible(false);
+				txtListaDeProductuos.setText(controlador.leerFrutaAcida());
 			}
 		});
 		btnFrutaAcida.setBackground(Color.WHITE);
@@ -315,6 +468,7 @@ public class Inicio extends JFrame {
 				panelComidaChatarra.setVisible(false);
 				panelFrutaDulce.setVisible(false);
 				panelFrutaAcida.setVisible(false);
+				txtListaDeProductuos.setText(controlador.leerLacteo());
 			}
 		});
 		btnLacteo.setBackground(Color.WHITE);
@@ -334,6 +488,7 @@ public class Inicio extends JFrame {
 				panelFrutaDulce.setVisible(false);
 				panelFrutaAcida.setVisible(false);
 				panelLacteo.setVisible(false);
+				txtListaDeProductuos.setText(controlador.leerNoLacteo());
 			}
 		});
 		btnNoLacteo.setBackground(Color.WHITE);
@@ -353,6 +508,7 @@ public class Inicio extends JFrame {
 				panelFrutaAcida.setVisible(false);
 				panelLacteo.setVisible(false);
 				panelNoLacteo.setVisible(false);
+				txtListaDeProductuos.setText(controlador.leerVerdura());
 			}
 		});
 		btnVerduras.setBackground(Color.WHITE);
@@ -608,10 +764,10 @@ public class Inicio extends JFrame {
 		lblTipoDeLacteo.setBounds(0, 0, 113, 14);
 		panelLacteo.add(lblTipoDeLacteo);
 
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(0, 61, 159, 20);
-		panelLacteo.add(textField_6);
+		txtCantidad = new JTextField();
+		txtCantidad.setColumns(10);
+		txtCantidad.setBounds(0, 61, 159, 20);
+		panelLacteo.add(txtCantidad);
 
 		JLabel lblCantidad = new JLabel("Cantidad:");
 		lblCantidad.setBounds(0, 46, 113, 14);
@@ -667,7 +823,13 @@ public class Inicio extends JFrame {
 		JLabel lblPeso_1 = new JLabel("Peso:");
 		lblPeso_1.setBounds(0, 46, 113, 14);
 		panelVerduras.add(lblPeso_1);
-
+		
+		lblCreadoConExtio = new JLabel("");
+		lblCreadoConExtio.setForeground(Color.RED);
+		lblCreadoConExtio.setBounds(10, 534, 297, 14);
+		contentPane.add(lblCreadoConExtio);
+		
+		lblCreadoConExtio.setVisible(false);
 		panelCarnesFrias.setVisible(false);
 		panelComidaChatarra.setVisible(false);
 		panelFrutaAcida.setVisible(false);

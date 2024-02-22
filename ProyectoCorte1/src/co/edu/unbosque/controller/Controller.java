@@ -217,6 +217,10 @@ public class Controller {
 	public String leerCarneFria() {
 		return carneFriaDAO.read();
 	}
+	
+	public String leerComidaChatarra() {
+		return comidaChatarraDAO.read();
+	}
 
 	public String leerFrutaAcida() {
 		return frutaAcidaDAO.read();
