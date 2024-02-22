@@ -2,7 +2,7 @@ package co.edu.unbosque.model;
 
 /**
  * @author nietoDaniel, suazaDiego , rubioDavid,riveraDaniel La clase
- *         CarneFriaDTO representa un tipo de producto y hereda de ProductoDTO.
+ *         CarneFriaDTO hereda de ProductoDTO representa un tipo de producto y hereda de ProductoDTO.
  *         Contiene informacion sobre el tipo de carne y el peso.
  */
 
@@ -109,7 +109,7 @@ public class CarneFriaDTO extends ProductoDTO {
 	 * @author nietoDaniel, suazaDiego , rubioDavid,riveraDaniel Constructor que
 	 *         Establece el tipo de carne.
 	 *
-	 * @param tipoCrne El nuevo tipo de carne.
+	 * @param tipoCarne El nuevo tipo de carne.
 	 */
 	public void setTipoCarne(String tipoCarne) {
 		this.tipoCarne = tipoCarne;
@@ -137,8 +137,9 @@ public class CarneFriaDTO extends ProductoDTO {
 	}
 
 	/**
-	 * @author nietoDaniel, suazaDiego , rubioDavid,riveraDaniel 
-	 * Constructor que Devuelve una representacion de el tipo de carne, peso, nombre,precio, tipo del producto, codigo del producto y la marca del producto.
+	 * @author nietoDaniel, suazaDiego , rubioDavid,riveraDaniel Constructor que
+	 *         Devuelve una representacion de el tipo de carne, peso, nombre,precio,
+	 *         tipo del producto, codigo del producto y la marca del producto.
 	 *
 	 * @return Una representacion de la carne fria.
 	 */
@@ -149,13 +150,14 @@ public class CarneFriaDTO extends ProductoDTO {
 				+ ", getPrecio()=" + getPrecio() + ", getTipoProduc()=" + getTipoProduc() + ", getCodigoProduc()="
 				+ getCodigoProduc() + ", getMarcaProducto()=" + getMarcaProducto() + "]";
 	}
-	
+
 	/**
 	 * @author ChavarroOscar,SuazaDiego,CastellanosJose,CortesKevin,AriasEsteban
-     * Busca la fecha de vencimiento del producto.
-     *
-     * @return super El metodo de vencimiento y lo sobreescribe con un mensaje adicional.
-     */
+	 *         Busca la fecha de vencimiento del producto.
+	 *
+	 * @return super El metodo de vencimiento y lo sobreescribe con un mensaje
+	 *         adicional.
+	 */
 
 	@Override
 	public String vencimiento() {
