@@ -35,13 +35,13 @@ public class Controller {
 		System.out.println("Creado Con Exito");
 	}
 
-	public void crearFrutaAcida(Object producto) {
-		frutaAcidaDAO.create(producto);
+	public void crearFrutaAcida(String Nombre, int precio, String tipoProduct, String codigoProduct, String marca, boolean esDeTemporada, String metodoConseva, int nivelAcidez, boolean paraJugos) {
+		frutaAcidaDAO.create(FrutaAcidaDTO.getInstancia(Nombre, precio, tipoProduct, codigoProduct, marca, esDeTemporada, metodoConseva, nivelAcidez, paraJugos));
 		System.out.println("Creado Con Exito");
 	}
 
-	public void crearFrutaDulce(Object producto) {
-		frutaDulceDAO.create(producto);
+	public void crearFrutaDulce(String Nombre, int precio, String tipoProduct, String codigoProduct, String marca, boolean esDeTemporada, String metodoConseva, int nivelDeAzucar, boolean paraPostres) {
+		frutaDulceDAO.create(FrutaDulceDTO.getInstancia(Nombre, precio, tipoProduct, codigoProduct, marca, esDeTemporada, metodoConseva, nivelDeAzucar, paraPostres));
 		System.out.println("Creado Con Exito");
 	}
 

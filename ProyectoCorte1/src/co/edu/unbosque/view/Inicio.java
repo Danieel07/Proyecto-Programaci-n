@@ -60,6 +60,10 @@ public class Inicio extends JFrame {
 	private JPanel panelVerduras;
 	private JEditorPane txtListaDeProductuos;
 	private JList listAzucarSioNo;
+	private JList listJugosSioNo;
+	private JList listPostresSioNoDulce;
+	private JList listTempSioNo;
+	private JList listTempSioNoDulce;
 	
 	public Inicio() {
 		setBounds(new Rectangle(0, 0, 0, 0));
@@ -110,14 +114,42 @@ public class Inicio extends JFrame {
 					}
 					controlador.crearComidaChatarra(nombre, precio, TipoDeProducto, codigoProducto, marcaDeProducto, tipoComidaChatarra, isAzucar);
 				}
-				else if(TipoDeProducto == "Fruta Dulce") {
-					
-				}
 				else if(TipoDeProducto == "Fruta Acida") {
+					String nvAcidezStr = txtNivelDeAcidez.getText();
+					int nivelAcidez = Integer.parseInt(nvAcidezStr);
 					
+					String paraJugosStr = listJugosSioNo.getSelectedValue().toString();
+					
+					boolean isJugos = false;
+					if(paraJugosStr == "Si") {
+						isJugos = true;
+					}
+					String deTemporadaStr = listTempSioNo.getSelectedValue().toString();
+					boolean isTemporada = false;
+					if(deTemporadaStr == "Si") {
+						isTemporada = true;
+					}
+					String metodoDeConserva = txtMetodoDeConserva.getText();
+					controlador.crearFrutaAcida(nombre, precio, TipoDeProducto, codigoProducto, marcaDeProducto, isTemporada, metodoDeConserva, nivelAcidez, isJugos);
+				}
+				else if(TipoDeProducto == "Fruta Dulce") {
+					String nvDulcuraStr = txtNivelDeAzucar.getText().toString();
+					int nvDulcura = Integer.parseInt(nvDulcuraStr);
+					String paraPostreStr = listPostresSioNoDulce.getSelectedValue().toString();
+					boolean isParaPostre = false;
+					if(paraPostreStr == "Si") {
+						isParaPostre = true;
+					}
+					String deTempStr = listTempSioNoDulce.getSelectedValue().toString();
+					boolean isTemporada = false;
+					if(deTempStr == "Si") {
+						isTemporada = true;
+					}
+					String metodoConserva = txtMetodoConservaDulce.getText().toString();
+					controlador.crearFrutaDulce(nombre, precio, TipoDeProducto, codigoProducto, marcaDeProducto, isTemporada, metodoConserva, nvDulcura, isParaPostre);
 				}
 				else if(TipoDeProducto == "Lacteo") {
-				
+					
 				}
 				else if(TipoDeProducto == "No Lacteo") {
 					
@@ -429,7 +461,7 @@ public class Inicio extends JFrame {
 		lblDeTemporada.setBounds(10, 11, 113, 14);
 		panelFrutaAcida.add(lblDeTemporada);
 		
-		JList listTempSioNo = new JList();
+		listTempSioNo = new JList();
 		listTempSioNo.setModel(new AbstractListModel() {
 			String[] values = new String[] {"Si", "No"};
 			public int getSize() {
@@ -465,7 +497,7 @@ public class Inicio extends JFrame {
 		lblSePuedenHacerJugos.setBounds(10, 174, 159, 14);
 		panelFrutaAcida.add(lblSePuedenHacerJugos);
 		
-		JList listJugosSioNo = new JList();
+		listJugosSioNo = new JList();
 		listJugosSioNo.setModel(new AbstractListModel() {
 			String[] values = new String[] {"Si", "No"};
 			public int getSize() {
@@ -488,8 +520,8 @@ public class Inicio extends JFrame {
 		lblDeTemporada_1.setBounds(10, 11, 113, 14);
 		panelFrutaDulce.add(lblDeTemporada_1);
 		
-		JList listTempSioNo_1 = new JList();
-		listTempSioNo_1.setModel(new AbstractListModel() {
+		listTempSioNoDulce = new JList();
+		listTempSioNoDulce.setModel(new AbstractListModel() {
 			String[] values = new String[] {"Si", "No"};
 			public int getSize() {
 				return values.length;
@@ -498,9 +530,9 @@ public class Inicio extends JFrame {
 				return values[index];
 			}
 		});
-		listTempSioNo_1.setForeground(Color.DARK_GRAY);
-		listTempSioNo_1.setBounds(10, 26, 159, 39);
-		panelFrutaDulce.add(listTempSioNo_1);
+		listTempSioNoDulce.setForeground(Color.DARK_GRAY);
+		listTempSioNoDulce.setBounds(10, 26, 159, 39);
+		panelFrutaDulce.add(listTempSioNoDulce);
 		
 		JLabel lblMetodoDeConserva_1 = new JLabel("Metodo de Conservación:\r\n");
 		lblMetodoDeConserva_1.setBounds(10, 76, 159, 14);
@@ -524,8 +556,8 @@ public class Inicio extends JFrame {
 		lblSePuedenHacer.setBounds(10, 181, 159, 14);
 		panelFrutaDulce.add(lblSePuedenHacer);
 		
-		JList listJugosSioNo_1 = new JList();
-		listJugosSioNo_1.setModel(new AbstractListModel() {
+		listPostresSioNoDulce = new JList();
+		listPostresSioNoDulce.setModel(new AbstractListModel() {
 			String[] values = new String[] {"Si", "No"};
 			public int getSize() {
 				return values.length;
@@ -534,9 +566,9 @@ public class Inicio extends JFrame {
 				return values[index];
 			}
 		});
-		listJugosSioNo_1.setForeground(Color.DARK_GRAY);
-		listJugosSioNo_1.setBounds(10, 199, 159, 39);
-		panelFrutaDulce.add(listJugosSioNo_1);
+		listPostresSioNoDulce.setForeground(Color.DARK_GRAY);
+		listPostresSioNoDulce.setBounds(10, 199, 159, 39);
+		panelFrutaDulce.add(listPostresSioNoDulce);
 		
 		JLabel lblMx_1 = new JLabel("1-10 (10 Máx ; 1 Min)");
 		lblMx_1.setForeground(Color.RED);
