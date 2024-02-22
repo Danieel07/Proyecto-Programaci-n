@@ -149,13 +149,21 @@ public class Inicio extends JFrame {
 					controlador.crearFrutaDulce(nombre, precio, TipoDeProducto, codigoProducto, marcaDeProducto, isTemporada, metodoConserva, nvDulcura, isParaPostre);
 				}
 				else if(TipoDeProducto == "Lacteo") {
-					
+					String tipoLacteo = txtTipoLacteo.getText().toString();
+					String cantidadStr = txtTipoLacteo.getText().toString();
+					double cantidad = Double.parseDouble(cantidadStr);
+					controlador.crearLacteo(nombre, precio, TipoDeProducto, codigoProducto, marcaDeProducto, tipoLacteo, cantidad);
 				}
 				else if(TipoDeProducto == "No Lacteo") {
-					
+					String tipoNoLacteo = txtTipoNoLacteo.getText().toString();
+					String origen = txtTipoNoLacteo.getText().toString();
+					controlador.crearNoLacteo(nombre, precio, TipoDeProducto, codigoProducto, marcaDeProducto, tipoNoLacteo, origen);
 				}
 				else if(TipoDeProducto == "Verduras") {
-					
+					String tipoVerdura = txtTipoVerdura.getText();
+				    String pesoStr = txtPesoVerduras.getText();
+				    double peso = Double.parseDouble(pesoStr);
+				    controlador.crearVerdura(nombre, precio, TipoDeProducto, codigoProducto, marcaDeProducto, tipoVerdura, peso);
 				}
 				
 				

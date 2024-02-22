@@ -45,19 +45,19 @@ public class Controller {
 		System.out.println("Creado Con Exito");
 	}
 
-	public void crearLacteo(Object producto) {
-		lacteoDAO.create(producto);
-		System.out.println("Creado Con Exito");
+	public void crearLacteo(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto, String tipoLacteo, double cantidad) {
+	    lacteoDAO.create(LacteoDTO.getInstancia(nombre, precio, tipoProduc, codigoProduc, marcaProducto, tipoLacteo, cantidad));
+	    System.out.println("Creado Con Éxito");
 	}
 
-	public void crearNoLacteo(Object producto) {
-		lacteoDAO.create(producto);
-		System.out.println("Creado Con Exito");
+	public void crearNoLacteo(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto, String tipoNoLacteo, String origen) {
+	    noLacteoDAO.create(NoLacteoDTO.getInstancia(nombre, precio, tipoProduc, codigoProduc, marcaProducto, tipoNoLacteo, origen));
+	    System.out.println("Creado Con Éxito");
 	}
 
-	public void crearVerdura(Object producto) {
-		verduraDAO.create(producto);
-		System.out.println("Creado Con Exito");
+	public void crearVerdura(String nombre, int precio, String tipoProduc, String codigoProduc, String marcaProducto, String tipoVerdura, double peso) {
+	    verduraDAO.create(VerduraDTO.getInstancia(nombre, precio, tipoProduc, codigoProduc, marcaProducto, tipoVerdura, peso));
+	    System.out.println("Creado Con Éxito");
 	}
 
 //Metodos para eliminar productos:
