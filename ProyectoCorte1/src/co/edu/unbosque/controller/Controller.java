@@ -24,47 +24,9 @@ public class Controller {
 		verduraDAO = new VerduraDAO();
 	}
 
-	public void crearProducto(ProductoDTO producto) {
-		getProductoFactoryDAO(producto).create(producto);
-	}
-
-	public boolean updateProducto(int index, ProductoDTO producto) {
-		return getProductoFactoryDAO(producto).update(index, producto);
-	}
-
-	public boolean eliminarProducto(int index, ProductoDTO producto) {
-		return getProductoFactoryDAO(producto).delete(index);
-	}
-
-	public String readProducto(int index, ProductoDTO producto) {
-		return getProductoFactoryDAO(producto).read();
-	}
-
-	public CRUDOperation getProductoFactoryDAO(ProductoDTO producto) {
-
-		if (producto instanceof ComidaChatarraDTO dto) {
-			return comidaChatarraDAO;
-
-		} else if (producto instanceof CarneFriaDTO dto) {
-			return carneFriaDAO;
-
-		} else if (producto instanceof FrutaAcidaDTO dto) {
-			return frutaAcidaDAO;
-
-		} else if (producto instanceof FrutaDulceDTO dto) {
-			return frutaDulceDAO;
-
-		} else if (producto instanceof LacteoDTO dto) {
-			return lacteoDAO;
-
-		} else if (producto instanceof NoLacteoDTO dto) {
-			return noLacteoDAO;
-
-		} else if (producto instanceof VerduraDTO dto) {
-			return verduraDAO;
-		}
-
-		throw new RuntimeException("There is not Dao for the product given");
+	public void crearCarne(Object producto) {
+		carneFriaDAO.create(producto);
+		System.out.println("Creado Con Exito");
 	}
 
 }
