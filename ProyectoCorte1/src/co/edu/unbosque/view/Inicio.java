@@ -4,6 +4,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.UIManager;
+
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Toolkit;
 import javax.swing.JLabel;
@@ -13,6 +15,9 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JEditorPane;
 
 public class Inicio extends JFrame {
 
@@ -23,6 +28,8 @@ public class Inicio extends JFrame {
 	private JTextField txtCodigoDeProducto;
 	private JTextField txtMarcaDeProducto;
 	private JTextField txtNumIndice;
+	private JPanel panelHijo2;
+	private JPanel panelHijo;
 	
 	public Inicio() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\daniel\\git\\ProyectoDeCorte1\\ProyectoCorte1\\src\\co\\edu\\unbosque\\view\\icono.png"));
@@ -40,31 +47,34 @@ public class Inicio extends JFrame {
 		
 		JLabel lblTitulo = new JLabel("Administración De Productos");
 		lblTitulo.setBounds(190, 11, 443, 36);
-		lblTitulo.setForeground(Color.DARK_GRAY);
+		lblTitulo.setForeground(Color.BLACK);
 		lblTitulo.setFont(new Font("Arial Black", Font.BOLD, 18));
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		contentPane.add(lblTitulo);
 		
 		JButton btnCrear = new JButton("Crear");
+		btnCrear.setForeground(Color.BLACK);
 		btnCrear.setBounds(10, 559, 144, 42);
 		btnCrear.setBackground(Color.GREEN);
 		btnCrear.setFont(new Font("Arial Black", Font.BOLD, 16));
 		contentPane.add(btnCrear);
 		
 		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.setForeground(Color.BLACK);
 		btnEliminar.setBounds(670, 559, 144, 42);
 		btnEliminar.setFont(new Font("Arial Black", Font.BOLD, 16));
 		btnEliminar.setBackground(Color.RED);
 		contentPane.add(btnEliminar);
 		
 		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar.setForeground(Color.BLACK);
 		btnActualizar.setBounds(340, 559, 144, 42);
 		btnActualizar.setFont(new Font("Arial Black", Font.BOLD, 16));
 		btnActualizar.setBackground(Color.CYAN);
 		contentPane.add(btnActualizar);
 		
 		JLabel lblNombre = new JLabel("Nombre Del Producto:");
-		lblNombre.setBounds(10, 49, 113, 14);
+		lblNombre.setBounds(10, 49, 159, 14);
 		contentPane.add(lblNombre);
 		
 		txtNombreProducto = new JTextField();
@@ -73,7 +83,7 @@ public class Inicio extends JFrame {
 		txtNombreProducto.setColumns(10);
 		
 		JLabel lblPrecio = new JLabel("Precio Del Producto");
-		lblPrecio.setBounds(10, 99, 113, 14);
+		lblPrecio.setBounds(10, 99, 159, 14);
 		contentPane.add(lblPrecio);
 		
 		txtPrecio = new JTextField();
@@ -91,13 +101,38 @@ public class Inicio extends JFrame {
 		panelOpciones.setLayout(null);
 		
 		JButton btnCarnesFrias = new JButton("Carnes Frias");
-		btnCarnesFrias.setBackground(Color.BLACK);
+		btnCarnesFrias.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				PanelCarnesFrias pc = new PanelCarnesFrias();
+				pc.setSize(346,247);
+				pc.setLocation(0, 0);
+				panelHijo2.removeAll();
+				panelHijo2.add(pc, BorderLayout.CENTER);
+				panelHijo2.revalidate();
+				panelHijo2.repaint();
+				
+			}
+		});
+		btnCarnesFrias.setBackground(Color.WHITE);
 		btnCarnesFrias.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnCarnesFrias.setBounds(0, 0, 114, 23);
 		panelOpciones.add(btnCarnesFrias);
 		
 		JButton btnComidaChatarra = new JButton("Comida Chatarra");
-		btnComidaChatarra.setBackground(Color.BLACK);
+		btnComidaChatarra.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				PanelComidasChatarras panelAbrir = new PanelComidasChatarras();
+				panelAbrir.setSize(346,247);
+				panelAbrir.setLocation(0, 0);
+				panelHijo2.removeAll();
+				panelHijo2.add(panelAbrir, BorderLayout.CENTER);
+				panelHijo2.revalidate();
+				panelHijo2.repaint();
+			}
+		});
+		btnComidaChatarra.setBackground(Color.WHITE);
 		btnComidaChatarra.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -107,38 +142,95 @@ public class Inicio extends JFrame {
 		panelOpciones.add(btnComidaChatarra);
 		
 		JButton btnFrutaDulce = new JButton("Fruta Dulce");
-		btnFrutaDulce.setBackground(Color.BLACK);
+		btnFrutaDulce.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			PanelFrutaDulce panelAbrir = new PanelFrutaDulce();
+			panelAbrir.setSize(346,247);
+			panelAbrir.setLocation(0, 0);
+			panelHijo2.removeAll();
+			panelHijo2.add(panelAbrir, BorderLayout.CENTER);
+			panelHijo2.revalidate();
+			panelHijo2.repaint();
+			}
+			
+		});
+		btnFrutaDulce.setBackground(Color.WHITE);
 		btnFrutaDulce.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnFrutaDulce.setBounds(0, 34, 114, 23);
 		panelOpciones.add(btnFrutaDulce);
 		
 		JButton btnFrutaAcida = new JButton("Fruta Acida");
-		btnFrutaAcida.setBackground(Color.BLACK);
+		btnFrutaAcida.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				PanelFrutaAcida panelAbrir = new PanelFrutaAcida();
+				panelAbrir.setSize(346,247);
+				panelAbrir.setLocation(0, 0);
+				panelHijo2.removeAll();
+				panelHijo2.add(panelAbrir, BorderLayout.CENTER);
+				panelHijo2.revalidate();
+				panelHijo2.repaint();
+			}
+		});
+		btnFrutaAcida.setBackground(Color.WHITE);
 		btnFrutaAcida.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnFrutaAcida.setBounds(124, 34, 117, 23);
 		panelOpciones.add(btnFrutaAcida);
 		
 		JButton btnLacteo = new JButton("Lacteo");
-		btnLacteo.setBackground(Color.BLACK);
+		btnLacteo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				PanelLacteo panelAbrir = new PanelLacteo();
+				panelAbrir.setSize(346,247);
+				panelAbrir.setLocation(0, 0);
+				panelHijo2.removeAll();
+				panelHijo2.add(panelAbrir, BorderLayout.CENTER);
+				panelHijo2.revalidate();
+				panelHijo2.repaint();
+			}
+		});
+		btnLacteo.setBackground(Color.WHITE);
 		btnLacteo.setBounds(0, 68, 114, 23);
 		panelOpciones.add(btnLacteo);
 		
 		JButton btnNoLacteo = new JButton("No Lacteo");
-		btnNoLacteo.setBackground(Color.BLACK);
+		btnNoLacteo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				PanelNoLacteo panelAbrir = new PanelNoLacteo();
+				panelAbrir.setSize(346,247);
+				panelAbrir.setLocation(0, 0);
+				panelHijo2.removeAll();
+				panelHijo2.add(panelAbrir, BorderLayout.CENTER);
+				panelHijo2.revalidate();
+				panelHijo2.repaint();
+			}
+		});
+		btnNoLacteo.setBackground(Color.WHITE);
 		btnNoLacteo.setBounds(124, 68, 117, 23);
 		panelOpciones.add(btnNoLacteo);
 		
 		JButton btnVerduras = new JButton("Verduras");
-		btnVerduras.setBackground(Color.BLACK);
-		btnVerduras.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnVerduras.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				PanelVerduras panelAbrir = new PanelVerduras();
+				panelAbrir.setSize(346,247);
+				panelAbrir.setLocation(0, 0);
+				panelHijo2.removeAll();
+				panelHijo2.add(panelAbrir, BorderLayout.CENTER);
+				panelHijo2.revalidate();
+				panelHijo2.repaint();
 			}
 		});
+		btnVerduras.setBackground(Color.WHITE);
 		btnVerduras.setBounds(81, 101, 89, 23);
 		panelOpciones.add(btnVerduras);
 		
 		JLabel lblCodigoDeProducto = new JLabel("Codigo De Producto:");
-		lblCodigoDeProducto.setBounds(197, 49, 113, 14);
+		lblCodigoDeProducto.setBounds(197, 49, 159, 14);
 		contentPane.add(lblCodigoDeProducto);
 		
 		txtCodigoDeProducto = new JTextField();
@@ -147,7 +239,7 @@ public class Inicio extends JFrame {
 		contentPane.add(txtCodigoDeProducto);
 		
 		JLabel lblMarcaDelProducto = new JLabel("Marca Del Producto:");
-		lblMarcaDelProducto.setBounds(197, 99, 113, 14);
+		lblMarcaDelProducto.setBounds(197, 99, 159, 14);
 		contentPane.add(lblMarcaDelProducto);
 		
 		txtMarcaDeProducto = new JTextField();
@@ -156,11 +248,11 @@ public class Inicio extends JFrame {
 		contentPane.add(txtMarcaDeProducto);
 		
 		JPanel panelEliminarActualizar = new JPanel();
-		panelEliminarActualizar.setBounds(260, 148, 103, 60);
+		panelEliminarActualizar.setBounds(262, 163, 103, 60);
 		contentPane.add(panelEliminarActualizar);
 		panelEliminarActualizar.setLayout(null);
 		
-		JLabel lblNumIndice = new JLabel("Numero de Indice:");
+		JLabel lblNumIndice = new JLabel("Indice:");
 		lblNumIndice.setBounds(10, 11, 99, 14);
 		panelEliminarActualizar.add(lblNumIndice);
 		
@@ -169,12 +261,16 @@ public class Inicio extends JFrame {
 		txtNumIndice.setBounds(10, 26, 63, 20);
 		panelEliminarActualizar.add(txtNumIndice);
 		
-		JPanel panelHijo = new JPanel();
+		panelHijo = new JPanel();
 		panelHijo.setBounds(370, 58, 450, 490);
 		contentPane.add(panelHijo);
 		panelHijo.setLayout(null);
 		
-		JPanel panelHijo2 = new JPanel();
+		JEditorPane txtListaDeProductuos = new JEditorPane();
+		txtListaDeProductuos.setBounds(0, 0, 450, 490);
+		panelHijo.add(txtListaDeProductuos);
+		
+		panelHijo2 = new JPanel();
 		panelHijo2.setLayout(null);
 		panelHijo2.setBounds(10, 301, 346, 247);
 		contentPane.add(panelHijo2);
